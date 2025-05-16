@@ -57,7 +57,7 @@
       
       <!-- Add this resume download button -->
       <div class="resume-download">
-          <a href="Alea Rao Resume - 2025 (Tech).pdf" class="resume-btn" download>
+          <a href="Alea Rao Resume - 2025 May.pdf" class="resume-btn" download>
               <span class="resume-icon"></span>
               Download Resume
           </a>
@@ -104,59 +104,70 @@
     </section>
 
 <!-- Work Experience Section -->
-    <section class="experience" id="experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="experience-list">
-                <div class="experience-card">
-                    <h3>Computer Science Teaching Assistant</h3>
-                    <p class="timeline-subtitle">Tufts University | Aug 2025 - Present | Medford, MA</p>
-                    <ul class="timeline-list">
-                        <li>Teaching assistant for CS10: Computer Science for All</li>
-                        <li>FILL IN LATER</li>
-                        <li>FILL IN LATER</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Technology Consulting Intern</h3>
-                    <p class="timeline-subtitle">Ernst & Young | June 2025 - Aug 2025 | Singapore</p>
-                    <ul class="timeline-list">
-                        <li>FILL IN</li>
-                        <li>FILL IN</li>
-                        <li>FILL IN</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>SceneIt App Developer</h3>
-                    <p class="timeline-subtitle">Tufts University | April 2025 - Present | Medford, MA</p>
-                    <ul class="timeline-list">
-                        <li>FILL IN</li>
-                        <li>FILL IN</li>
-                        <li>FILL IN</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Design Evolution Project Lead</h3>
-                    <p class="timeline-subtitle">IDEA Lab Tufts University | Fall 2024 - Present | Medford, MA</p>
-                    <ul class="timeline-list">
-                        <li>Aims to leverage the product design abilities of the human brain to develop a novel evolution design system</li>
-                        <li>Developed an ML-powered image generation platform by conducting user research, competitive analysis, and Figma
-                        prototyping, as well as using tools like OpenAI, TensorFlow, and OpenCV for design system integration.</li>
-                    </ul>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>Deep Tech Research Intern</h3>
-                    <p class="timeline-subtitle">Elev8.vc | Dec 2022 - Jan 2023 | Singapore</p>
-                    <ul class="timeline-list">
-                        <li>Worked for a B2B-focused VC fund that invests in early-stage deep technology founders.</li>
-                        <li>Conducted market research to help identify investment trends and opportunities within the market of mobility</li>
-                        <li>Researched the Mobility landscape in Singapore and explored the technology behind autonomous vehicles</li>
-                    </ul>
-                </div>
+<section class="experience" id="experience">
+    <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-list">
+            <!-- First 3 cards: always visible -->
+            <div class="experience-card">
+                <h3>Computer Science Teaching Assistant</h3>
+                <p class="timeline-subtitle">Tufts University | Aug 2025 - Present | Medford, MA</p>
+                <ul class="timeline-list">
+                    <li>Teaching Assistant for CS10: Computer Science for All, an introductory Python programming course</li>
+                    <li>Hold office hours and grade assignments, providing guidance on fundamental programming concepts and debugging techniques</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>Technology Consulting Intern</h3>
+                <p class="timeline-subtitle">Ernst & Young | June 2025 - Aug 2025 | Singapore</p>
+                <ul class="timeline-list">
+                    <li>Worked with clients to leverage technology for business transformation and digital solutions</li>
+                    <li>Supported technology transformation projects using design thinking, agile methodologies, and emerging technologies</li>
+                </ul>
+            </div>
+            <div class="experience-card">
+                <h3>SceneIt Software Developer</h3>
+                <p class="timeline-subtitle">Tufts University | April 2025 - Present | Medford, MA</p>
+                <ul class="timeline-list">
+                    <li>Building a mobile app using React Native that aims to provide a more connected platform for student clubs across universities.</li>
+                </ul>
+            </div>
+
+            <!-- Hidden cards: add class 'hidden-experience' -->
+            <div class="experience-card hidden-experience">
+                <h3>Design Evolution Project Lead</h3>
+                <p class="timeline-subtitle">IDEA Lab Tufts University | Fall 2024 - Present | Medford, MA</p>
+                <ul class="timeline-list">
+                    <li>Aims to leverage the product design abilities of the human brain to develop a novel evolution design system</li>
+                    <li>Developed an ML-powered image generation platform by conducting user research, competitive analysis, and Figma
+                    prototyping, as well as using tools like OpenAI, TensorFlow, and OpenCV for design system integration.</li>
+                </ul>
+            </div>
+            <div class="experience-card hidden-experience">
+                <h3>Deep Tech Research Intern</h3>
+                <p class="timeline-subtitle">Elev8.vc | Dec 2022 - Jan 2023 | Singapore</p>
+                <ul class="timeline-list">
+                    <li>Worked for a B2B-focused VC fund that invests in early-stage deep technology founders.</li>
+                    <li>Conducted market research to help identify investment trends and opportunities within the market of mobility</li>
+                    <li>Researched the Mobility landscape in Singapore and explored the technology behind autonomous vehicles</li>
+                </ul>
+            </div>
+            <div class="experience-card hidden-experience">
+                <h3>Assisting/Teaching at Tuition Center</h3>
+                <p class="timeline-subtitle">HighQ Tution Center | Mar 2022 - Oct 2023 | Singapore</p>
+                <ul class="timeline-list">
+                    <li>Lead comprehensive “Introduction to Coding” camps for 30+ students during term breaks</li>
+                    <li>Produced detailed online resources to support students in learning Mathematics and Natural Science</li>
+                </ul>
             </div>
         </div>
-    </section>
+        <!-- Show More/Less Buttons -->
+        <div class="show-more-container" style="text-align:center; margin-top:30px;">
+            <button id="showMoreBtn" class="cta-button">Show More</button>
+            <button id="showLessBtn" class="cta-button" style="display:none;">Show Less</button>
+        </div>
+    </div>
+</section>
 
     <!-- Skills Section -->
     <section class="skills" id="skills">
@@ -164,28 +175,20 @@
             <h2 class="section-title">My Skills</h2>
             <div class="skills-container">
                 <div class="skill-card">
-                    <h3>Frontend Development</h3>
-                    <p>HTML5, CSS3, JavaScript, React, Responsive Design</p>
+                    <h3>Programming Languages</h3>
+                    <p>Java, Python, C++, HTML, CSS, JavaScript, MySQL, Git (basic)</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Backend Development</h3>
-                    <p>Node.js, Express, Python, SQL, RESTful APIs</p>
+                    <h3>Frameworks & Libraries</h3>
+                    <p>React (basic), Tailwind (basic), OpenCV (basic), Tensorflow</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Product Management</h3>
-                    <p>User Research, Wireframing, Agile Methodologies, A/B Testing</p>
+                    <h3>Tools & Platforms</h3>
+                    <p>GitHub, Figma, Canva, Microsoft Office (PowerPoint, Excel, Word), VS Code</p>
                 </div>
                 <div class="skill-card">
-                    <h3>Tools & Technologies</h3>
-                    <p>Git, GitHub, VS Code, Figma, Jira</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Data Analysis</h3>
-                    <p>Python, R, SQL, Data Visualization</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Soft Skills</h3>
-                    <p>Leadership, Communication, Problem-Solving, Teamwork</p>
+                    <h3>Technical Skills</h3>
+                    <p>Object-Oriented Programming, User Research</p>
                 </div>
             </div>
         </div>
@@ -197,35 +200,49 @@
             <h2 class="section-title">My Projects</h2>
             <div class="projects-container">
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image">
+                        <img src="jewelry.png" alt="Jewelry Database System">
+                    </div>
                     <div class="project-content">
-                        <h3>Student Task Manager</h3>
-                        <p>A web application designed to help college students manage their assignments, deadlines, and study schedules.</p>
+                        <h3>Jewelry Databse System</h3>
+                        <p>Worked through product life-cycle with a client to produce a management system for their jewelry business.</p>
+                        <p>Java, MySQL</p>
                         <div class="project-links">
-                            <a href="#">View Project</a>
-                            <a href="#">GitHub</a>
+                            <a href="full IA.pdf">Report</a>
+                            <a href="https://github.com/alearao/jewelrydatabse-system">GitHub</a>    
+                            <a href="https://youtu.be/2Cy1SLAXZLg" target="_blank" rel="noopener">Video Demo</a>
+
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image">
+                        <img src="chatbot.png" alt="IB-Edubot">
+                    </div>
                     <div class="project-content">
-                        <h3>Campus Event Finder</h3>
-                        <p>A mobile-friendly platform that helps students discover and RSVP to events happening on campus.</p>
+                        <h3>IB-Edubot: AI Chatbot for IB students</h3>
+                        <p>Used python libraries to build a simple interactive chatbot designed to help IB students revise for their exams.</p>
+                        <p>Built for research purposes in AI uses in IB education</p>
+                        <p>Python, Tensorflow, Keras</p>
                         <div class="project-links">
-                            <a href="#">View Project</a>
-                            <a href="#">GitHub</a>
+                            <a href="Alea Rao_EE FINAL DRAFT NEW.pdf">Report</a>
+                            <a href="https://github.com/alearao/IB-EduBot-">GitHub</a>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image"></div>
+                    <div class="project-image">
+                        <img src ="jumbuddy.png" alt="Jumbuddy">
+                    </div>
                     <div class="project-content">
-                        <h3>Study Group Matcher</h3>
-                        <p>An algorithm-based tool that connects students with similar courses and complementary study habits.</p>
+                        <h3>Jumbuddy</h3>
+                        <p>An App built for a hackathon to help students in university branch out and meet other students with similar interests</p>
+                        <p>React Native, Airtable, Tailwind</p>
                         <div class="project-links">
-                            <a href="#">View Project</a>
-                            <a href="#">GitHub</a>
+                            <a href="https://devpost.com/software/jumbuddy">View Project</a>
+                            <a href="https://github.com/rakshitranga/jumbuddy">GitHub</a>
+                            <a href="https://www.figma.com/proto/V2eQj0alaxvcAopJU8OGlO/Jumbuddy?node-id=44-748&p=f&t=xaM5U72prlMKHg9A-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=44%3A1496&show-proto-sidebar=1">Figma</a>
+                            <a href="https://youtube.com/shorts/69T6bRZ5KPg?feature=share" target="_blank" rel="noopener">Video Demo</a>
                         </div>
                     </div>
                 </div>
@@ -237,35 +254,19 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Let's Connect</h2>
-                    <p>Feel free to reach out for collaboration opportunities, project inquiries, or just to say hello!</p>
-                    <div class="contact-links">
+            <div class="contact-content" style="justify-content: center;">
+                <div class="contact-info" style="text-align: center;">
+                    <div class="contact-links" style="margin-bottom: 16px;">
                         <a href="mailto:alea.rao@tufts.edu">alea.rao@tufts.edu</a>
                     </div>
-                    <p>Based in Boston, Massachusetts</p>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
+                    <div class="contact-links" style="margin-bottom: 16px;">
+                        <a href="tel:+1234567890">+1 (339) 241-7825</a>
+                    </div>
+                    <p style="margin-bottom: 16px;">Medford, MA</p>
+                    <div class="contact-links">
+                        <a href="https://www.linkedin.com/in/alea-rao-35780421b" target="_blank" rel="noopener">LinkedIn</a> |
+                        <a href="https://github.com/alearao" target="_blank" rel="noopener">GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -273,38 +274,10 @@
 
     <!-- Footer -->
     <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Alea Rao</h3>
-                <p>Software Engineer & Product Manager</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/alea-rao-35780421b" aria-label="LinkedIn">in</a>
-                    <a href="https://github.com/alearao" aria-label="GitHub">gh</a>
-                </div>
-            </div>
-        </div>
-
         <div class="copyright">
             <p>&copy; 2025 Alea Rao. All rights reserved.</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>

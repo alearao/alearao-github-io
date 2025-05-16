@@ -52,29 +52,6 @@ window.addEventListener('scroll', function() {
     });
 });
 
-
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
-
 // Optional: Animation for timeline cards
 document.addEventListener('DOMContentLoaded', function() {
     const timelineCards = document.querySelectorAll('.timeline-card');
@@ -90,5 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     timelineCards.forEach(card => {
         observer.observe(card);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const showLessBtn = document.getElementById('showLessBtn');
+    const hiddenCards = document.querySelectorAll('.hidden-experience');
+
+    showMoreBtn.addEventListener('click', function() {
+        hiddenCards.forEach(card => card.style.display = 'block');
+        showMoreBtn.style.display = 'none';
+        showLessBtn.style.display = 'inline-block';
+    });
+
+    showLessBtn.addEventListener('click', function() {
+        hiddenCards.forEach(card => card.style.display = 'none');
+        showMoreBtn.style.display = 'inline-block';
+        showLessBtn.style.display = 'none';
+        window.scrollTo({ top: document.querySelector('.experience').offsetTop, behavior: 'smooth' });
     });
 });

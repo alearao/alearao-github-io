@@ -125,8 +125,11 @@ nav ul li a:hover:after {
     padding: 12px 30px;
     border-radius: 30px;
     text-decoration: none;
+    font-size: 16px;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    border: none; /* Remove border */
+    outline: none; /* Remove outline on click */
 }
 
 .cta-button:hover {
@@ -258,26 +261,44 @@ nav ul li a:hover:after {
     gap: 30px;
 }
 
+/* Project Card Image Styling */
 .project-card {
-    background-color: var(--white);
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    min-height: 350px;
 }
 
 .project-image {
-    height: 200px;
-    background-color: #e1e1e1;
+    width: 100%;
+    height: 180px; /* or your preferred height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0; /* light grey background */
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* Change from 'cover' to 'contain' to zoom out */
+    display: block;
+    border-radius: 0;
+    background: #fff;      /* Optional: add background for letterboxing effect */
 }
 
 .project-content {
-    padding: 25px;
+    padding: 30px 24px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .project-content h3 {
@@ -306,119 +327,48 @@ nav ul li a:hover:after {
     color: var(--text-color);
 }
 
-/* Contact Section */
+/* Contact Section Styles */
 .contact {
     padding: 100px 0;
+    background-color: var(--light-accent);
 }
 
 .contact-content {
     display: flex;
-    gap: 50px;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-info {
-    flex: 1;
-}
-
-.contact-info h2 {
-    font-size: 36px;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.contact-info h2:after {
-    content: '';
-    position: absolute;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-    bottom: -10px;
-    left: 0;
-}
-
-.contact-info p {
-    margin-bottom: 30px;
-    font-size: 18px;
-    color: #555;
+    text-align: center;
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .contact-links {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 }
 
 .contact-links a {
-    display: inline-flex;
-    align-items: center;
-    color: var(--text-color);
+    color: #222; /* dark font color */
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    margin: 0 8px;
+    transition: color 0.2s;
 }
 
 .contact-links a:hover {
-    color: var(--accent-dark);
+    color: var(--accent-color); /* pink on hover */
 }
 
-.contact-links a i {
-    margin-right: 8px;
-}
-
-.contact-form {
-    flex: 1;
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-button {
-    background-color: var(--accent-color);
-    color: var(--white);
-    padding: 12px 30px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: var(--accent-dark);
+.contact-info p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 16px;
 }
 
 /* Footer */
@@ -707,14 +657,18 @@ footer {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-
 .timeline-content h3 {
     margin-bottom: 10px;
     font-size: 22px;
     color: var(--text-color);
 }
 
-
+.timeline-subtitle {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-style: italic;
+}
 
 .timeline-list, .coursework-list {
     margin-top: 15px;
@@ -788,3 +742,6 @@ footer {
     font-size: 18px;
 }
 
+.hidden-experience {
+    display: none;
+}
