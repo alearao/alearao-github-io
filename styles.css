@@ -198,7 +198,6 @@ nav ul li a:hover:after {
 }
 
 
-
 .section-title {
     text-align: center;
     margin-bottom: 60px;
@@ -620,6 +619,77 @@ footer {
     position: relative;
 }
 
+.education .timeline-card .timeline-card{
+    background-color: var(--bg-color);
+    padding: 20px;
+    margin-left: 90px;
+    margin-right: 90px;
+    
+}
+
+/* Remove timeline styles from experience section */
+.experience-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    /* Remove vertical line if present */
+}
+
+.experience-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin: 0;
+    position: static;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove timeline-specific styles for experience */
+.experience-container:before,
+.experience-card .timeline-icon,
+.experience-card .year {
+    display: none !important;
+}
+
+.experience .timeline-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.experience .timeline-list li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Responsive adjustments for experience cards */
+@media (max-width: 768px) {
+    .experience-list {
+        gap: 25px;
+    }
+    .experience-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .experience-list {
+        gap: 15px;
+    }
+    .experience-card {
+        padding: 15px;
+    }
+}
+
+
 /* Timeline style for work experience and education */
 .timeline-card {
     position: relative;
@@ -637,21 +707,6 @@ footer {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-icon {
-    position: absolute;
-    left: -50px;
-    top: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-weight: bold;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
 
 .timeline-content h3 {
     margin-bottom: 10px;
@@ -659,12 +714,7 @@ footer {
     color: var(--text-color);
 }
 
-.timeline-subtitle {
-    color: #666;
-    font-weight: 500;
-    margin-bottom: 15px;
-    font-style: italic;
-}
+
 
 .timeline-list, .coursework-list {
     margin-top: 15px;
@@ -676,23 +726,6 @@ footer {
     color: #555;
 }
 
-/* Add a vertical line connecting timeline elements */
-.experience-container:before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 40px;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--accent-color);
-    height: calc(100% - 100px);
-}
-
-/* Year label */
-.year {
-    font-size: 14px;
-    font-weight: bold;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
