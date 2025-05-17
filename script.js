@@ -77,11 +77,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// CSS for hidden experience cards
-const style = document.createElement('style');
-style.innerHTML = `
-.hidden-experience {
-    display: none;
-}
-`;
-document.head.appendChild(style);
