@@ -680,6 +680,31 @@ footer {
     color: #555;
 }
 
+.coursework-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+  gap: 12px 30px; /* vertical and horizontal spacing */
+  list-style-position: outside;
+  padding-left: 20px;
+  word-break: break-word;
+  margin: 0;
+}
+
+.coursework-list li {
+  font-size: 16px;
+}
+
+/* 1-column on small screens */
+@media (max-width: 768px) {
+  .coursework-list {
+    grid-template-columns: 1fr;
+  }
+
+  .coursework-list li {
+    font-size: 14px;
+  }
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
