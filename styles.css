@@ -580,6 +580,18 @@ footer {
         margin-right: 5px;
         padding: 8px 2px;
     }
+
+    .coursework-list {
+        display: block;
+        padding-left: 18px;
+        gap: 0;
+    }
+    .coursework-list li {
+        font-size: 13px;
+        margin-bottom: 6px;
+        word-break: normal;
+        white-space: normal;
+    }
 }
 
 /* Education & Experience Sections */
