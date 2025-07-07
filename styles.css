@@ -517,6 +517,22 @@ footer {
     .projects-container {
         grid-template-columns: 1fr;
     }
+
+    .education {
+        padding: 60px 0;
+    }
+    .education-container {
+        padding: 0 10px;
+    }
+    .timeline-card {
+        margin-left: 20px;
+        padding: 20px 10px;
+    }
+    .education .timeline-card .timeline-card {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 15px 8px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -547,6 +563,22 @@ footer {
     nav.mobile-nav-visible {
         display: block;
         margin-top: 20px;
+    }
+
+    .education {
+        padding: 40px 0;
+    }
+    .education-container {
+        padding: 0 4px;
+    }
+    .timeline-card {
+        margin-left: 5px;
+        padding: 12px 4px;
+    }
+    .education .timeline-card .timeline-card {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 8px 2px;
     }
 }
 
