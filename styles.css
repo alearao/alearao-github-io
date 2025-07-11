@@ -39,7 +39,22 @@ header {
     z-index: 1000;
     background: var(--bg-color);
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
 }
+
+header.scrolled {
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+header.scrolled .logo {
+    font-size: 20px;
+}
+
+header.scrolled nav ul li a {
+    font-size: 14px;
+}
+
 @supports not (position: sticky) {
     header {
         position: fixed;
@@ -154,7 +169,7 @@ nav ul li a:hover:after {
     background-color: var(--light-accent);
 }
 .about-content {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
