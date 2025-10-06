@@ -1,9 +1,9 @@
 /* Color Palette */
 :root {
-    --bg-color: #faf0e6; /* Light beige background */
-    --text-color: #333333; /* Dark text for readability */
+    --bg-color: #ffefef; /* Light beige background */
+    --text-color: #000000; /* Dark text for readability */
     --accent-color: #e8b4b8; /* Soft pink accent */
-    --accent-dark: #d19499; /* Darker pink for hover effects */
+    --accent-dark: hsl(355, 33%, 70%); /* Darker pink for hover effects */
     --light-accent: #f8e6e8; /* Very light pink for sections */
     --white: #ffffff; /* White for contrast */
 }
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -31,8 +31,35 @@ body {
 
 /* Header Styles */
 header {
-    padding: 40px 0;
-    position: relative;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--bg-color);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+header.scrolled .logo {
+    font-size: 20px;
+}
+
+header.scrolled nav ul li a {
+    font-size: 14px;
+}
+
+@supports not (position: sticky) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
 }
 
 .header-content {
@@ -136,52 +163,62 @@ nav ul li a:hover:after {
     background-color: var(--accent-dark);
 }
 
-/* About Section */
+/* About Section - Fixed Centering */
 .about {
-    padding: 100px 0;
+    padding: 0;
     background-color: var(--light-accent);
 }
-
 .about-content {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-
-.about-image {
-    flex: 1;
-    text-align: center;
-}
-
-.about-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
 .about-text {
-    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 32px 32px 32px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Remove background and box-shadow */
+    background: none;
+    box-shadow: none;
 }
-
 .about-text h2 {
+    text-align: center;
+    margin-bottom: 60px;
     font-size: 36px;
-    margin-bottom: 25px;
     position: relative;
 }
 
 .about-text h2:after {
     content: '';
     position: absolute;
+    text-align: center;
     width: 60px;
     height: 3px;
     background-color: var(--accent-color);
-    bottom: -10px;
-    left: 0;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .about-text p {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
 }
 
 /* Skills Section */
@@ -517,6 +554,22 @@ footer {
     .projects-container {
         grid-template-columns: 1fr;
     }
+
+    .education {
+        padding: 60px 0;
+    }
+    .education-container {
+        padding: 0 10px;
+    }
+    .timeline-card {
+        margin-left: 20px;
+        padding: 20px 10px;
+    }
+    .education .timeline-card .timeline-card {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 15px 8px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -547,6 +600,41 @@ footer {
     nav.mobile-nav-visible {
         display: block;
         margin-top: 20px;
+    }
+
+    .education {
+        padding: 40px 0;
+    }
+    .education-container {
+        padding: 0 4px;
+    }
+    .timeline-card {
+        margin-left: 5px;
+        padding: 12px 4px;
+    }
+    .education .timeline-card .timeline-card {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 8px 2px;
+    }
+
+    .coursework-list {
+        display: block;
+        padding-left: 18px;
+        gap: 0;
+    }
+    .coursework-list li {
+        font-size: 13px;
+        margin-bottom: 6px;
+        word-break: normal;
+        white-space: normal;
+    }
+    .about-text {
+        padding: 24px 8px 20px 8px;
+        border-radius: 10px;
+    }
+    .about-content {
+        padding: 0;
     }
 }
 
@@ -681,28 +769,53 @@ footer {
 }
 
 .coursework-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
-  gap: 12px 30px; /* vertical and horizontal spacing */
-  list-style-position: outside;
-  padding-left: 20px;
-  word-break: break-word;
-  margin: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.coursework-item {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .coursework-list li {
-  font-size: 16px;
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    font-size: 16px;
+    color: var(--text-color);
+    transition: box-shadow 0.2s;
+    list-style: none;
+    display: block;
+}
+
+.coursework-list li:last-child {
+    margin-bottom: 0;
 }
 
 /* 1-column on small screens */
 @media (max-width: 768px) {
-  .coursework-list {
-    grid-template-columns: 1fr;
-  }
+    .coursework-list {
+        grid-template-columns: 1fr;
+    }
 
-  .coursework-list li {
-    font-size: 14px;
-  }
+    .coursework-list li {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .coursework-list li {
+        font-size: 13px;
+        padding: 8px 6px;
+        margin-bottom: 8px;
+    }
 }
 
 /* Responsive adjustments */
@@ -739,7 +852,11 @@ footer {
 }
 
 .resume-download {
+    text-align: center;
+    width: 100%;
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .resume-btn {
@@ -768,4 +885,79 @@ footer {
 
 .hidden-experience {
     display: none;
+}
+
+/* Coursework section redesign */
+.coursework-desc {
+    text-align: center;
+    margin: 0 0 12px 0;
+    font-size: 1.08rem;
+    color: #444;
+}
+.coursework-note {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #444;
+    font-size: 1rem;
+}
+.coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px 24px;
+    margin: 0 auto;
+    max-width: 900px;
+    justify-items: center;
+}
+.coursework-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 28px 18px;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+    min-height: 90px;
+    min-width: 0;
+    width: 100%;
+    max-width: 320px;
+    /* Remove link styles */
+    text-decoration: none;
+    cursor: default;
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+.coursework-card:hover, .coursework-card:focus {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    background: #fff;
+    color: #222;
+    transform: none;
+    text-decoration: none;
+}
+@media (max-width: 900px) {
+    .coursework-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .coursework-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .coursework-card {
+        padding: 18px 8px;
+        font-size: 1rem;
+        min-height: 60px;
+    }
+    .coursework-desc, .coursework-note {
+        font-size: 0.98rem;
+    }
+}
+
+.header-spacer {
+    height: 80px;
+    width: 100%;
+    display: block;
 }
