@@ -1,9 +1,9 @@
 /* Color Palette */
 :root {
-    --bg-color: #faf0e6; /* Light beige background */
-    --text-color: #333333; /* Dark text for readability */
+    --bg-color: #ffefef; /* Light beige background */
+    --text-color: #000000; /* Dark text for readability */
     --accent-color: #e8b4b8; /* Soft pink accent */
-    --accent-dark: #d19499; /* Darker pink for hover effects */
+    --accent-dark: hsl(355, 33%, 70%); /* Darker pink for hover effects */
     --light-accent: #f8e6e8; /* Very light pink for sections */
     --white: #ffffff; /* White for contrast */
 }
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Poppins', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
