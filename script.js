@@ -87,3 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ad8bc65a757f2dc64638922499924020e1cbd797
