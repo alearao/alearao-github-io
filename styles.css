@@ -28,6 +28,44 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     scroll-behavior: smooth;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(232, 180, 184, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(232, 180, 184, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(232, 180, 184, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    animation: backgroundPulse 20s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(232, 180, 184, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 180, 184, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 /* Container for all content */
@@ -45,9 +83,11 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 239, 239, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 12px rgba(232, 180, 184, 0.15);
+    background: rgba(255, 239, 239, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(232, 180, 184, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -119,6 +159,7 @@ nav ul li a:after {
     background: var(--gradient-2);
     transition: width 0.3s ease;
     border-radius: 2px;
+    box-shadow: 0 0 8px rgba(232, 180, 184, 0.6);
 }
 
 nav ul li a:hover {
@@ -197,6 +238,8 @@ nav ul li a:hover:after {
     margin-bottom: 20px;
     font-weight: 700;
     animation: fadeInUp 1s ease-out 0.2s both;
+    text-shadow: 0 0 30px rgba(232, 180, 184, 0.3),
+                 0 0 60px rgba(232, 180, 184, 0.2);
 }
 
 .hero p {
@@ -212,21 +255,38 @@ nav ul li a:hover:after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-highlight::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(10px);
+    opacity: 0.5;
 }
 
 .cta-button {
     display: inline-block;
     background: var(--gradient-2);
     color: var(--white);
-    padding: 12px 30px;
-    border-radius: 30px;
+    padding: 14px 35px;
+    border-radius: 50px;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     outline: none;
-    box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4);
+    box-shadow: 0 8px 25px rgba(232, 180, 184, 0.5),
+                0 0 20px rgba(232, 180, 184, 0.2);
     animation: fadeInUp 1s ease-out 0.6s both;
     position: relative;
     overflow: hidden;
@@ -248,8 +308,9 @@ nav ul li a:hover:after {
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(232, 180, 184, 0.5);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(232, 180, 184, 0.6),
+                0 0 30px rgba(232, 180, 184, 0.4);
 }
 
 /* About Section - Enhanced Design */
@@ -301,22 +362,25 @@ nav ul li a:hover:after {
     max-width: 700px;
     width: 100%;
     padding: 50px 40px 40px 40px;
-    border-radius: 24px;
+    border-radius: 30px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 12px 48px rgba(232, 180, 184, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(232, 180, 184, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUp 1s ease-out;
 }
 
 .about-text:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(232, 180, 184, 0.3);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 16px 64px rgba(232, 180, 184, 0.35),
+                0 0 0 1px rgba(232, 180, 184, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .about-text h2 {
@@ -408,6 +472,10 @@ nav ul li a:hover:after {
     font-size: 36px;
     position: relative;
     font-weight: 700;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .section-title:after {
@@ -419,8 +487,21 @@ nav ul li a:hover:after {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 2px;
-    box-shadow: 0 2px 8px rgba(232, 180, 184, 0.3);
+    border-radius: 3px;
+    box-shadow: 0 2px 12px rgba(232, 180, 184, 0.5),
+                0 0 8px rgba(232, 180, 184, 0.3);
+    animation: lineGlow 3s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        box-shadow: 0 2px 12px rgba(232, 180, 184, 0.5),
+                    0 0 8px rgba(232, 180, 184, 0.3);
+    }
+    50% {
+        box-shadow: 0 2px 20px rgba(232, 180, 184, 0.7),
+                    0 0 15px rgba(232, 180, 184, 0.5);
+    }
 }
 
 .skills-container {
@@ -430,14 +511,16 @@ nav ul li a:hover:after {
 }
 
 .skill-card {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(180%);
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    border: 2px solid transparent;
+    border: 1px solid rgba(232, 180, 184, 0.2);
 }
 
 .skill-card::before {
@@ -453,9 +536,11 @@ nav ul li a:hover:after {
 }
 
 .skill-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(232, 180, 184, 0.2);
-    border-color: var(--accent-color);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(232, 180, 184, 0.3),
+                0 0 0 1px rgba(232, 180, 184, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 180, 184, 0.5);
 }
 
 .skill-card:hover::before {
@@ -506,20 +591,24 @@ nav ul li a:hover:after {
 .project-card {
     display: flex;
     flex-direction: column;
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
     overflow: hidden;
     margin-bottom: 30px;
     min-height: 350px;
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(232, 180, 184, 0.2);
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(232, 180, 184, 0.25);
-    border-color: var(--accent-color);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 60px rgba(232, 180, 184, 0.35),
+                0 0 0 1px rgba(232, 180, 184, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 180, 184, 0.5);
 }
 
 .project-image {
@@ -570,21 +659,24 @@ nav ul li a:hover:after {
     color: var(--accent-dark);
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 2px solid var(--accent-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 2px solid rgba(232, 180, 184, 0.5);
     display: inline-block;
     font-size: 14px;
     white-space: nowrap;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
 .project-links a:hover {
     background: var(--gradient-2);
     color: var(--white);
     border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(232, 180, 184, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(232, 180, 184, 0.5),
+                0 0 15px rgba(232, 180, 184, 0.3);
 }
 
 /* Contact Section Styles */
@@ -602,20 +694,24 @@ nav ul li a:hover:after {
 
 .contact-info {
     text-align: center;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(180%);
     padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
     max-width: 400px;
     margin: 0 auto;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(232, 180, 184, 0.2);
 }
 
 .contact-info:hover {
-    box-shadow: 0 10px 30px rgba(232, 180, 184, 0.2);
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(232, 180, 184, 0.3),
+                0 0 0 1px rgba(232, 180, 184, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 180, 184, 0.5);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .contact-links {
@@ -869,19 +965,22 @@ footer::before {
     .education .timeline-card .timeline-card {
         margin-left: 5px;
         margin-right: 5px;
-        padding: 8px 2px;
+        padding: 12px 6px;
     }
 
     .coursework-list {
         display: block;
-        padding-left: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
         gap: 0;
     }
     .coursework-list li {
         font-size: 13px;
         margin-bottom: 6px;
-        word-break: normal;
+        word-break: break-word;
+        overflow-wrap: break-word;
         white-space: normal;
+        max-width: 100%;
     }
     .about-text {
         padding: 24px 8px 20px 8px;
@@ -932,20 +1031,25 @@ footer::before {
 }
 
 .experience-card {
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
     padding: 30px;
     margin: 0;
     position: static;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 3px solid rgba(232, 180, 184, 0.3);
 }
 
 .experience-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 10px 25px rgba(232, 180, 184, 0.2);
+    transform: translateX(8px) scale(1.01);
+    box-shadow: 0 12px 48px rgba(232, 180, 184, 0.3),
+                0 0 0 1px rgba(232, 180, 184, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
     border-left-color: var(--accent-color);
+    border-left-width: 4px;
 }
 
 /* Remove timeline-specific styles for experience */
@@ -989,19 +1093,24 @@ footer::before {
 .timeline-card {
     position: relative;
     margin-bottom: 60px;
-    background: var(--white);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(232, 180, 184, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-left: 50px;
-    border-left: 4px solid transparent;
+    border-left: 3px solid rgba(232, 180, 184, 0.3);
 }
 
 .timeline-card:hover {
-    transform: translateX(5px);
-    box-shadow: 0 10px 25px rgba(232, 180, 184, 0.2);
+    transform: translateX(8px) scale(1.01);
+    box-shadow: 0 12px 48px rgba(232, 180, 184, 0.3),
+                0 0 0 1px rgba(232, 180, 184, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
     border-left-color: var(--accent-color);
+    border-left-width: 4px;
 }
 
 .timeline-content h3 {
@@ -1041,17 +1150,30 @@ footer::before {
 }
 
 .coursework-list li {
-    background: var(--white);
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(232, 180, 184, 0.2);
+    border-radius: 12px;
+    padding: 12px 18px;
     margin-bottom: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 15px rgba(232, 180, 184, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
     font-size: 16px;
     color: var(--text-color);
-    transition: box-shadow 0.2s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     list-style: none;
     display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.coursework-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(232, 180, 184, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(232, 180, 184, 0.4);
 }
 
 .coursework-list li:last-child {
@@ -1074,6 +1196,19 @@ footer::before {
         font-size: 13px;
         padding: 8px 6px;
         margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .education .timeline-card .timeline-card {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 12px 8px;
+    }
+
+    .timeline-content h3 {
+        font-size: 18px;
+        word-wrap: break-word;
     }
 }
 
@@ -1123,12 +1258,13 @@ footer::before {
     align-items: center;
     background: var(--gradient-2);
     color: var(--white);
-    padding: 12px 22px;
-    border-radius: 30px;
+    padding: 14px 28px;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(232, 180, 184, 0.5),
+                0 0 20px rgba(232, 180, 184, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -1152,8 +1288,9 @@ footer::before {
 }
 
 .resume-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(232, 180, 184, 0.5);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(232, 180, 184, 0.6),
+                0 0 30px rgba(232, 180, 184, 0.4);
 }
 
 .resume-icon {
@@ -1302,10 +1439,23 @@ footer::before {
     display: inline-block;
     background: var(--gradient-2);
     color: var(--white);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 600;
     margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(232, 180, 184, 0.3);
+    box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4),
+                0 0 10px rgba(232, 180, 184, 0.2);
+    animation: tagPulse 3s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4),
+                    0 0 10px rgba(232, 180, 184, 0.2);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(232, 180, 184, 0.5),
+                    0 0 20px rgba(232, 180, 184, 0.3);
+    }
 }
